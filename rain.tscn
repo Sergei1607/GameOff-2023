@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4s1yycbu2of2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iyo0h"]
+emission_shape = 3
+emission_box_extents = Vector3(600, 324, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 135.28
+gravity = Vector3(-500, 1000, 0)
+angular_velocity_max = 720.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+scale_max = 0.5
+color = Color(0.988235, 0.992157, 0.992157, 1)
+
+[node name="Rain" type="GPUParticles2D"]
+position = Vector2(702, 54)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_iyo0h")
+preprocess = 1.0
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+local_coords = true
+trail_enabled = true
+trail_lifetime = 0.1

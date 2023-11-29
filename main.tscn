@@ -1,0 +1,287 @@
+[gd_scene load_steps=28 format=3 uid="uid://b4w6tgtb5ohsv"]
+
+[ext_resource type="PackedScene" uid="uid://ctegd5qrtq1k6" path="res://UI/note_count_ui.tscn" id="1_2qi5e"]
+[ext_resource type="Script" path="res://main.gd" id="1_2uvky"]
+[ext_resource type="PackedScene" uid="uid://dobcb6mjnexvv" path="res://Player/player.tscn" id="1_aasne"]
+[ext_resource type="PackedScene" uid="uid://swhwh482ar1m" path="res://Notes/basic_note.tscn" id="2_8tvck"]
+[ext_resource type="Texture2D" uid="uid://dcr6e6ag2fco3" path="res://Assets/Background/Nebula Blue.png" id="2_g4bl3"]
+[ext_resource type="PackedScene" uid="uid://cwykwtn50da5a" path="res://Tilemap/world.tscn" id="2_h0j36"]
+[ext_resource type="PackedScene" uid="uid://5v4ckrfpaux2" path="res://rays.tscn" id="2_ta40f"]
+[ext_resource type="Texture2D" uid="uid://jegqqq6tecib" path="res://Assets/Background/Stars-Big_1_1_PC.png" id="3_6ktdu"]
+[ext_resource type="PackedScene" uid="uid://b4s1yycbu2of2" path="res://rain.tscn" id="3_mjis2"]
+[ext_resource type="Texture2D" uid="uid://bb2ok7autji1e" path="res://Assets/Background/Stars-Big_1_2_PC.png" id="4_0nj6t"]
+[ext_resource type="PackedScene" uid="uid://cj4s2t6dx74ja" path="res://Pentagrams/pentagram_access.tscn" id="4_2vkok"]
+[ext_resource type="PackedScene" uid="uid://p5d1o0mwseen" path="res://Pentagrams/Pentagram1.tscn" id="6_p5io8"]
+[ext_resource type="PackedScene" uid="uid://c3pnqeolrk3vj" path="res://UI/introduction.tscn" id="7_g21wx"]
+[ext_resource type="PackedScene" uid="uid://b6toahgjxu6bn" path="res://Pentagrams/Pentagram2.tscn" id="7_qm86e"]
+[ext_resource type="PackedScene" uid="uid://l6jco6fbtalm" path="res://Pentagrams/Pentagram3.tscn" id="8_e5ibx"]
+[ext_resource type="PackedScene" uid="uid://bohmh0r16r7nb" path="res://Teleporter/teleporter.tscn" id="8_eclgg"]
+[ext_resource type="PackedScene" uid="uid://b3pgvhhg1sgfm" path="res://UI/endscreen.tscn" id="8_f7uv0"]
+[ext_resource type="PackedScene" uid="uid://cnuw8yjwlvh6d" path="res://Pentagrams/Pentagram4.tscn" id="10_4amnm"]
+[ext_resource type="PackedScene" uid="uid://cp7d8g8fq7wmb" path="res://rain_splash.tscn" id="10_q4eqf"]
+[ext_resource type="AudioStream" uid="uid://w6uqlbrkihhb" path="res://Assets/Audio/rainy_village_8_bit_lofi.mp3" id="11_rnikh"]
+[ext_resource type="PackedScene" uid="uid://bulaurpsorqqb" path="res://Pentagrams/Pentagram5.tscn" id="11_v4qbv"]
+[ext_resource type="AudioStream" uid="uid://ct87aluorwwdb" path="res://Assets/Audio/Melody.mp3" id="17_udv0w"]
+[ext_resource type="PackedScene" uid="uid://c26i0gh5pne03" path="res://Instruments/goal_instrument.tscn" id="18_i2ogt"]
+
+[sub_resource type="Environment" id="Environment_iav2k"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 7.05
+glow_strength = 1.73
+glow_hdr_threshold = 0.4
+glow_hdr_scale = 1.13
+glow_hdr_luminance_cap = 7.73
+
+[sub_resource type="Animation" id="Animation_4p32f"]
+resource_name = "Fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black_Screen/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rh40u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black_Screen/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsbm2"]
+_data = {
+"Fade": SubResource("Animation_4p32f"),
+"RESET": SubResource("Animation_rh40u")
+}
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_2uvky")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(4096, 4096)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.188235)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_g4bl3")
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(4096, 4096)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_6ktdu")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(4096, 4096)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_0nj6t")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_iav2k")
+
+[node name="Rays" parent="." instance=ExtResource("2_ta40f")]
+z_index = 4
+offset_left = 733.0
+offset_top = -3653.0
+offset_right = 1233.0
+offset_bottom = -3011.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.686275, 0.988235, 0.968627, 1)
+
+[node name="World" parent="." instance=ExtResource("2_h0j36")]
+z_as_relative = false
+
+[node name="Introduction" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="Introduction" instance=ExtResource("7_g21wx")]
+
+[node name="EndScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" parent="EndScreen" instance=ExtResource("8_f7uv0")]
+
+[node name="NoteCountUI" type="CanvasLayer" parent="."]
+
+[node name="NoteCountUI" parent="NoteCountUI" instance=ExtResource("1_2qi5e")]
+
+[node name="PentagramLayer" type="CanvasLayer" parent="."]
+
+[node name="Black_Screen" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Black_Screen"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1984.0
+offset_bottom = 1088.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Notes" type="Node2D" parent="."]
+
+[node name="BasicNote" parent="Notes" instance=ExtResource("2_8tvck")]
+position = Vector2(-355, -149)
+
+[node name="BasicNote2" parent="Notes" instance=ExtResource("2_8tvck")]
+z_index = 1
+position = Vector2(1847, -140)
+
+[node name="BasicNote3" parent="Notes" instance=ExtResource("2_8tvck")]
+position = Vector2(1879, 330)
+
+[node name="BasicNote4" parent="Notes" instance=ExtResource("2_8tvck")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-4266, -1569)
+
+[node name="BasicNote5" parent="Notes" instance=ExtResource("2_8tvck")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(4224, -83)
+
+[node name="Pentagrams" type="Node2D" parent="."]
+z_index = 3
+
+[node name="PentagramAccess1" parent="Pentagrams" node_paths=PackedStringArray("pentagram_layer") instance=ExtResource("4_2vkok")]
+position = Vector2(1175, 247)
+pentagram_scene = ExtResource("6_p5io8")
+pentagram_layer = NodePath("../../PentagramLayer")
+
+[node name="PentagramAccess2" parent="Pentagrams" node_paths=PackedStringArray("pentagram_layer") instance=ExtResource("4_2vkok")]
+position = Vector2(-3232, -2410)
+pentagram_scene = ExtResource("7_qm86e")
+pentagram_layer = NodePath("../../PentagramLayer")
+
+[node name="PentagramAccess3" parent="Pentagrams" node_paths=PackedStringArray("pentagram_layer") instance=ExtResource("4_2vkok")]
+position = Vector2(3904, -473)
+pentagram_scene = ExtResource("8_e5ibx")
+pentagram_layer = NodePath("../../PentagramLayer")
+
+[node name="PentagramAccess4" parent="Pentagrams" node_paths=PackedStringArray("pentagram_layer") instance=ExtResource("4_2vkok")]
+position = Vector2(3064, -590)
+pentagram_scene = ExtResource("10_4amnm")
+pentagram_layer = NodePath("../../PentagramLayer")
+
+[node name="PentagramAccess5" parent="Pentagrams" node_paths=PackedStringArray("pentagram_layer") instance=ExtResource("4_2vkok")]
+position = Vector2(1314, -3066)
+pentagram_scene = ExtResource("11_v4qbv")
+pentagram_layer = NodePath("../../PentagramLayer")
+
+[node name="Teleporters" type="Node2D" parent="."]
+
+[node name="Teleporter" parent="Teleporters" node_paths=PackedStringArray("player", "animation_player") instance=ExtResource("8_eclgg")]
+z_index = 0
+y_sort_enabled = false
+position = Vector2(57, 884)
+spawn_location = Vector2(50, 50)
+player = NodePath("../../Player")
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Teleporter2" parent="Teleporters" node_paths=PackedStringArray("player", "animation_player") instance=ExtResource("8_eclgg")]
+z_index = 0
+y_sort_enabled = false
+position = Vector2(414, -1069)
+spawn_location = Vector2(-2624, -1226)
+player = NodePath("../../Player")
+functional = true
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Teleporter3" parent="Teleporters" node_paths=PackedStringArray("player", "animation_player") instance=ExtResource("8_eclgg")]
+z_index = 0
+y_sort_enabled = false
+position = Vector2(959, -1187)
+spawn_location = Vector2(1088, -2471)
+player = NodePath("../../Player")
+functional = true
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Teleporter4" parent="Teleporters" node_paths=PackedStringArray("player", "animation_player") instance=ExtResource("8_eclgg")]
+z_index = 0
+y_sort_enabled = false
+position = Vector2(1502, -1058)
+spawn_location = Vector2(3713, -293)
+player = NodePath("../../Player")
+functional = true
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Teleporter5" parent="Teleporters" node_paths=PackedStringArray("player", "animation_player") instance=ExtResource("8_eclgg")]
+z_index = 0
+y_sort_enabled = false
+position = Vector2(-2624, -1226)
+spawn_location = Vector2(414, -1069)
+player = NodePath("../../Player")
+functional = true
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Teleporter6" parent="Teleporters" node_paths=PackedStringArray("player", "animation_player") instance=ExtResource("8_eclgg")]
+z_index = 0
+y_sort_enabled = false
+position = Vector2(1088, -2471)
+spawn_location = Vector2(959, -1187)
+player = NodePath("../../Player")
+functional = true
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Teleporter7" parent="Teleporters" node_paths=PackedStringArray("player", "animation_player") instance=ExtResource("8_eclgg")]
+z_index = 0
+y_sort_enabled = false
+position = Vector2(3713, -293)
+spawn_location = Vector2(1502, -1058)
+player = NodePath("../../Player")
+functional = true
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Player" parent="." instance=ExtResource("1_aasne")]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(54, 878)
+
+[node name="GPUParticles2D" parent="Player" instance=ExtResource("3_mjis2")]
+process_mode = 3
+z_index = 4
+position = Vector2(200, -346)
+
+[node name="Rain_Splash" parent="Player" instance=ExtResource("10_q4eqf")]
+process_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tsbm2")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_rnikh")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_udv0w")
+volume_db = 10.0
+
+[node name="GoalInstrument" parent="." instance=ExtResource("18_i2ogt")]
+position = Vector2(1085, -3040)

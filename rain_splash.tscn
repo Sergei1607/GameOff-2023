@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp7d8g8fq7wmb"]
+
+[ext_resource type="Texture2D" uid="uid://du0dhh7tnskfh" path="res://Assets/Tileset/RainDrops.png" id="1_4u8va"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_42evn"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p8ev2"]
+emission_shape = 3
+emission_box_extents = Vector3(400, 300, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 1.5
+scale_max = 1.5
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="Rain_Splash" type="GPUParticles2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_42evn")
+process_material = SubResource("ParticleProcessMaterial_p8ev2")
+texture = ExtResource("1_4u8va")

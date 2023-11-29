@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctegd5qrtq1k6"]
+
+[ext_resource type="Script" path="res://UI/note_count_ui.gd" id="1_pj6nf"]
+[ext_resource type="Texture2D" uid="uid://d0ldjubvhi00f" path="res://Assets/Notes/notes.png" id="2_bwy1u"]
+
+[node name="NoteCountUI" type="Control"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_pj6nf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -67.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 18
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = -15
+theme_override_constants/margin_bottom = 9
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("2_bwy1u")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "x 1"
