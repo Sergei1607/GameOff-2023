@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqp6c5h0fj7bs"]
+
+[ext_resource type="PackedScene" uid="uid://cvn4x20lxvgdq" path="res://Objects/basic_prop.tscn" id="1_edoqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5cqs"]
+size = Vector2(33, 32)
+
+[node name="Cruz" instance=ExtResource("1_edoqg")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(453.233, 605, 53.9761, 80.2632)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.5, 24)
+shape = SubResource("RectangleShape2D_m5cqs")

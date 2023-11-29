@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1gtlaihtmgea"]
+
+[ext_resource type="PackedScene" uid="uid://cvn4x20lxvgdq" path="res://Objects/basic_prop.tscn" id="1_lb4nr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npqf5"]
+size = Vector2(35, 67)
+
+[node name="Pedestal" instance=ExtResource("1_lb4nr")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_enabled = true
+region_rect = Rect2(902.874, 236.774, 48.7712, 73.3689)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_npqf5")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cowvo5pqs6vwy"]
+
+[ext_resource type="PackedScene" uid="uid://cvn4x20lxvgdq" path="res://Objects/basic_prop.tscn" id="1_x27x7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6and"]
+size = Vector2(58, 33)
+
+[node name="RIP2" instance=ExtResource("1_x27x7")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(447.875, 478.389, 62.1331, 80.6136)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, 22.5)
+shape = SubResource("RectangleShape2D_g6and")

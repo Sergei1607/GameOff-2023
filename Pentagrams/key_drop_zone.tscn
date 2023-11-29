@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hxog5axf3caa"]
+
+[ext_resource type="Script" path="res://Pentagrams/key_drop_zone.gd" id="1_uswp8"]
+
+[node name="KeyDropZone" type="Marker2D" groups=["KeyDropZone"]]
+script = ExtResource("1_uswp8")

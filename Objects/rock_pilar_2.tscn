@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo4qpubx7ehru"]
+
+[ext_resource type="PackedScene" uid="uid://cvn4x20lxvgdq" path="res://Objects/basic_prop.tscn" id="1_v0t5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7il6"]
+size = Vector2(48, 67)
+
+[node name="RockPilar2" instance=ExtResource("1_v0t5q")]
+modulate = Color(1.25, 1.25, 1.25, 1)
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(451.846, 181.711, 55.7604, 134.462)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, 29.5)
+shape = SubResource("RectangleShape2D_o7il6")

@@ -1,0 +1,432 @@
+[gd_scene load_steps=33 format=3 uid="uid://bulaurpsorqqb"]
+
+[ext_resource type="Script" path="res://Pentagrams/Pentagram5.gd" id="1_nkrxa"]
+[ext_resource type="FontFile" uid="uid://bu013y6yfn0nb" path="res://Assets/Fonts/yatra-one/YatraOne-Regular.ttf" id="2_cafbr"]
+[ext_resource type="Texture2D" uid="uid://udu2pnrs0017" path="res://Assets/Paper/kiwihug-zGZYQQVmXw0-unsplash (1) (1).jpg" id="2_y76gc"]
+[ext_resource type="PackedScene" uid="uid://ci228wtmon7cr" path="res://UI/keys_ui_for_pentagram.tscn" id="3_280cb"]
+[ext_resource type="PackedScene" uid="uid://dshvxnpxiqv28" path="res://UI/note_count_pentagram_ui.tscn" id="4_tp5xb"]
+[ext_resource type="PackedScene" uid="uid://biorlntk8f30j" path="res://Pentagrams/note_drop_zone.tscn" id="5_5eovp"]
+[ext_resource type="PackedScene" uid="uid://hxog5axf3caa" path="res://Pentagrams/key_drop_zone.tscn" id="6_7kq0h"]
+[ext_resource type="PackedScene" uid="uid://b17exkc5uhsah" path="res://Keys/basic_key_drag_and_drop.tscn" id="7_ffhrk"]
+[ext_resource type="Texture2D" uid="uid://bvy7ka3fa70tk" path="res://Assets/Keys/F.png" id="8_qwn1a"]
+[ext_resource type="PackedScene" uid="uid://c1gdgdjxavv24" path="res://Notes/basic_note_drag_and_drop.tscn" id="9_bajis"]
+[ext_resource type="Texture2D" uid="uid://c6sxg5v0pp08d" path="res://Assets/Keys/D.png" id="9_rj1j8"]
+[ext_resource type="AudioStream" uid="uid://rorhljjscf3f" path="res://Assets/Audio/Pentagram5/1.mp3" id="11_q8d2m"]
+[ext_resource type="AudioStream" uid="uid://xfln4nahdj4c" path="res://Assets/Audio/Pentagram5/2.mp3" id="12_cmrw7"]
+[ext_resource type="PackedScene" uid="uid://qli11d4ofjc7" path="res://Instruments/basic_instrument.tscn" id="13_ots2q"]
+[ext_resource type="AudioStream" uid="uid://c66wfks0axugr" path="res://Assets/Audio/Pentagram5/3.mp3" id="13_qs4yy"]
+[ext_resource type="AudioStream" uid="uid://dyodktj6r7gox" path="res://Assets/Audio/Pentagram5/4.mp3" id="14_ewh6a"]
+[ext_resource type="PackedScene" uid="uid://dp2sqc60f0cwg" path="res://Pentagrams/magic_ball.tscn" id="14_wai5x"]
+[ext_resource type="AudioStream" uid="uid://cctyu0r7uvwat" path="res://Assets/Audio/Pentagram5/5.mp3" id="15_ieq8b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sg2uc"]
+bg_color = Color(0.820313, 0.699219, 0.945313, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lyo8"]
+bg_color = Color(0.816406, 0.695313, 0.941406, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.584314, 0.4, 0.976471, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcmsc"]
+bg_color = Color(0.820313, 0.699219, 0.945313, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.605469, 0.433594, 0.953125, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqm2p"]
+bg_color = Color(0.816406, 0.695313, 0.941406, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.584314, 0.4, 0.976471, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8j1e"]
+bg_color = Color(0.816406, 0.695313, 0.941406, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.584314, 0.4, 0.976471, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qg2ts"]
+bg_color = Color(0.820313, 0.699219, 0.945313, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.605469, 0.433594, 0.953125, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tl7s"]
+bg_color = Color(0.816406, 0.695313, 0.941406, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.584314, 0.4, 0.976471, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qbn7m"]
+a = Vector2(-4, 6)
+b = Vector2(16, 13)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_m7a26"]
+a = Vector2(-4, 4)
+b = Vector2(8, -6)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5slqc"]
+a = Vector2(-8, -2)
+b = Vector2(6, 7)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8da4s"]
+a = Vector2(-8, -2)
+b = Vector2(2, -9)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jq2li"]
+a = Vector2(13, 6)
+b = Vector2(2, -5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_34tcs"]
+a = Vector2(-8, -2)
+b = Vector2(7, -6)
+
+[sub_resource type="Curve2D" id="Curve2D_rcynu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 160, 320, -100.401, 114.431, 100.401, -114.431, 265.926, 272, 0, 0, 0, 0, 410.371, 288, -44.8732, 80.5272, 44.8732, -80.5272, 554.816, 272, -59.8607, -71.0974, 59.8607, 71.0974, 699.26, 256, 0, 0, 0, 0, 843.705, 272, -86.4599, -151.029, 86.4599, 151.029, 988.15, 320)
+}
+point_count = 7
+
+[node name="Pentagram5" type="Node2D"]
+script = ExtResource("1_nkrxa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Final" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -41.0
+offset_right = 166.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sg2uc")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Final"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/Final/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("2_cafbr")
+theme_override_font_sizes/font_size = 18
+text = "A chest was unlocked!
+Press \"Quit\""
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 0.784314, 1)
+offset_right = 1618.0
+offset_bottom = 734.0
+texture = ExtResource("2_y76gc")
+
+[node name="KeysUIforPentagram" parent="." instance=ExtResource("3_280cb")]
+
+[node name="note_count_pentagram_ui" parent="." instance=ExtResource("4_tp5xb")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 220.0
+offset_top = 430.0
+offset_right = 220.0
+offset_bottom = 430.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Play" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1080.0
+offset_top = 592.0
+offset_right = 1145.0
+offset_bottom = 623.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_4lyo8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tcmsc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tqm2p")
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1018.0
+offset_top = 592.0
+offset_right = 1078.0
+offset_bottom = 623.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8j1e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qg2ts")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7tl7s")
+text = "Quit"
+
+[node name="Lines" type="Node2D" parent="."]
+position = Vector2(0, 64)
+
+[node name="Line2D" type="Line2D" parent="Lines"]
+position = Vector2(96, 224)
+points = PackedVector2Array(0, 0, 64, 0, 128, 0, 192, 0, 256, 0, 320, 0, 384, 0, 448, 0, 512, 0, 576, 0, 640, 0, 704, 0, 768, 0, 831, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D2" type="Line2D" parent="Lines"]
+position = Vector2(96, 256)
+points = PackedVector2Array(0, 0, 64, 0, 128, 0, 192, 0, 256, 0, 320, 0, 384, 0, 448, 0, 512, 0, 576, 0, 640, 0, 704, 0, 768, 0, 831, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D3" type="Line2D" parent="Lines"]
+position = Vector2(96, 288)
+points = PackedVector2Array(0, 0, 64, 0, 128, 0, 192, 0, 256, 0, 320, 0, 384, 0, 448, 0, 512, 0, 576, 0, 640, 0, 704, 0, 768, 0, 831, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D4" type="Line2D" parent="Lines"]
+position = Vector2(96, 320)
+points = PackedVector2Array(0, 0, 64, 0, 128, 0, 192, 0, 256, 0, 320, 0, 384, 0, 448, 0, 512, 0, 576, 0, 640, 0, 704, 0, 768, 0, 831, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D5" type="Line2D" parent="Lines"]
+position = Vector2(96, 352)
+points = PackedVector2Array(0, 0, 64, 0, 128, 0, 192, 0, 256, 0, 320, 0, 384, 0, 448, 0, 512, 0, 576, 0, 640, 0, 704, 0, 768, 0, 831, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D6" type="Line2D" parent="Lines"]
+position = Vector2(925, 226)
+points = PackedVector2Array(0, 128, 0, -4)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D7" type="Line2D" parent="Lines"]
+position = Vector2(919, 225)
+points = PackedVector2Array(0, 128, 0, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="DropZones" type="Node2D" parent="."]
+position = Vector2(0, 64)
+
+[node name="NoteDropZone1" parent="DropZones" node_paths=PackedStringArray("sound1") instance=ExtResource("5_5eovp")]
+position = Vector2(270, 336)
+sound1 = NodePath("../../AudioStreamPlayer")
+
+[node name="NoteDropZone2" parent="DropZones" node_paths=PackedStringArray("sound1") instance=ExtResource("5_5eovp")]
+position = Vector2(420, 352)
+sound1 = NodePath("../../AudioStreamPlayer2")
+
+[node name="NoteDropZone3" parent="DropZones" node_paths=PackedStringArray("sound1") instance=ExtResource("5_5eovp")]
+position = Vector2(570, 336)
+sound1 = NodePath("../../AudioStreamPlayer3")
+
+[node name="NoteDropZone4" parent="DropZones" node_paths=PackedStringArray("sound1") instance=ExtResource("5_5eovp")]
+position = Vector2(720, 320)
+sound1 = NodePath("../../AudioStreamPlayer4")
+
+[node name="NoteDropZone5" parent="DropZones" node_paths=PackedStringArray("sound1") instance=ExtResource("5_5eovp")]
+position = Vector2(870, 336)
+sound1 = NodePath("../../AudioStreamPlayer5")
+
+[node name="KeyDropZone" parent="DropZones" instance=ExtResource("6_7kq0h")]
+position = Vector2(160, 288)
+
+[node name="Keys" type="Node2D" parent="."]
+
+[node name="G" parent="Keys" instance=ExtResource("7_ffhrk")]
+position = Vector2(379, 128)
+
+[node name="F" parent="Keys" instance=ExtResource("7_ffhrk")]
+position = Vector2(589, 132)
+
+[node name="Sprite2D" parent="Keys/F" index="0"]
+texture = ExtResource("8_qwn1a")
+
+[node name="C" parent="Keys" instance=ExtResource("7_ffhrk")]
+position = Vector2(804, 128)
+
+[node name="Sprite2D" parent="Keys/C" index="0"]
+texture = ExtResource("9_rj1j8")
+
+[node name="CheckPointAreas" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="CheckPoint1" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(288, 272)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint1"]
+position = Vector2(-14, -24)
+shape = SubResource("SegmentShape2D_qbn7m")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="CheckPoint2" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(461, 306)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint2"]
+position = Vector2(-16, -3)
+shape = SubResource("SegmentShape2D_m7a26")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="CheckPoint3" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(613, 248)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint3"]
+position = Vector2(-35, 12)
+shape = SubResource("SegmentShape2D_5slqc")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="CheckPoint4" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(613, 248)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint4"]
+position = Vector2(136, 36)
+shape = SubResource("SegmentShape2D_8da4s")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="CheckPoint5" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(613, 248)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint5"]
+position = Vector2(273, 0)
+shape = SubResource("SegmentShape2D_jq2li")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="CheckPoint6" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(613, 248)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint6"]
+position = Vector2(404, 71)
+shape = SubResource("SegmentShape2D_34tcs")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="Notes" type="Node2D" parent="."]
+
+[node name="Note1" parent="Notes" instance=ExtResource("9_bajis")]
+position = Vector2(320, 534)
+
+[node name="Note2" parent="Notes" instance=ExtResource("9_bajis")]
+position = Vector2(448, 535)
+
+[node name="Note3" parent="Notes" instance=ExtResource("9_bajis")]
+position = Vector2(576, 534)
+
+[node name="Note4" parent="Notes" instance=ExtResource("9_bajis")]
+position = Vector2(706, 535)
+
+[node name="Note5" parent="Notes" instance=ExtResource("9_bajis")]
+position = Vector2(831, 534)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_q8d2m")
+volume_db = 10.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_cmrw7")
+volume_db = 2.0
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_qs4yy")
+volume_db = 2.0
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ewh6a")
+volume_db = 2.0
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ieq8b")
+volume_db = 2.0
+
+[node name="Goal" parent="." instance=ExtResource("13_ots2q")]
+position = Vector2(1020, 352)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-6.15385, 32)
+scale = Vector2(1.03846, 1)
+curve = SubResource("Curve2D_rcynu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(160, 320)
+rotation = 0.0996687
+rotates = false
+loop = false
+
+[node name="MagicBall" parent="Path2D/PathFollow2D" instance=ExtResource("14_wai5x")]
+
+[connection signal="pressed" from="Play" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint1" to="." method="_on_check_point_1_area_entered"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint2" to="." method="_on_check_point_2_area_entered"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint3" to="." method="_on_check_point_3_area_entered"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint4" to="." method="_on_check_point_4_area_entered"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint5" to="." method="_on_check_point_5_area_entered"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint6" to="." method="_on_check_point_6_area_entered"]
+
+[editable path="Keys/F"]
+[editable path="Keys/C"]

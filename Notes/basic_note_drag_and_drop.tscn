@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1gdgdjxavv24"]
+
+[ext_resource type="Script" path="res://Notes/basic_note_drag_and_drop.gd" id="1_wh0kg"]
+[ext_resource type="Texture2D" uid="uid://d0ldjubvhi00f" path="res://Assets/Notes/notes.png" id="2_lu75e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhls5"]
+size = Vector2(122, 124)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3nq5c"]
+radius = 80.6226
+
+[node name="BasicNoteforDragandDrop" type="Node2D"]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_wh0kg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(18, -56)
+scale = Vector2(7, 7)
+texture = ExtResource("2_lu75e")
+
+[node name="MouseEntered" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseEntered"]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_mhls5")
+disabled = true
+
+[node name="MouseExited" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseExited"]
+shape = SubResource("CircleShape2D_3nq5c")
+debug_color = Color(0.803922, 0.384314, 0.458824, 0.419608)
+
+[connection signal="mouse_entered" from="MouseEntered" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="MouseExited" to="." method="_on_area_2d_2_mouse_exited"]

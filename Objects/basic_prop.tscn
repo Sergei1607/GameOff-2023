@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvn4x20lxvgdq"]
+
+[ext_resource type="Texture2D" uid="uid://dw62biam7ifng" path="res://Assets/Tileset/TX Props.png" id="1_soauo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwyeh"]
+size = Vector2(64, 60)
+
+[node name="Chest" type="StaticBody2D"]
+z_index = 10
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, 0)
+texture = ExtResource("1_soauo")
+region_enabled = true
+region_rect = Rect2(190.453, 60.6129, 66.2752, 60.8585)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-2, -19)
+texture = ExtResource("1_soauo")
+region_enabled = true
+region_rect = Rect2(191.779, 152.369, 63.9895, 97.4326)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mwyeh")

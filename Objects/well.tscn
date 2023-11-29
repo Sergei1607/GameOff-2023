@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cydn6dtht5vgr"]
+
+[ext_resource type="PackedScene" uid="uid://cvn4x20lxvgdq" path="res://Objects/basic_prop.tscn" id="1_olxsf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7a4n7"]
+radius = 57.1402
+
+[node name="Well" instance=ExtResource("1_olxsf")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_enabled = true
+region_rect = Rect2(836.915, 716.701, 114.707, 100.803)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_7a4n7")

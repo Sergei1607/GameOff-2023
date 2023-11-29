@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2uxxhv7e8clb"]
+
+[ext_resource type="PackedScene" uid="uid://cvn4x20lxvgdq" path="res://Objects/basic_prop.tscn" id="1_g8186"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_80m7s"]
+radius = 23.1948
+
+[node name="Rock2" instance=ExtResource("1_g8186")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_enabled = true
+region_rect = Rect2(134.543, 971.651, 52.0484, 42.4098)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_80m7s")

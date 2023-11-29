@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8k4rn5ilfgpb"]
+
+[ext_resource type="PackedScene" uid="uid://cvn4x20lxvgdq" path="res://Objects/basic_prop.tscn" id="1_1drjs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8fuiu"]
+radius = 30.0
+height = 118.0
+
+[node name="Bench3" instance=ExtResource("1_1drjs")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(774.288, 195.103, 53.3844, 123.048)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_8fuiu")

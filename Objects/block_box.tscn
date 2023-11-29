@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw8wuhxv5qmn6"]
+
+[ext_resource type="PackedScene" uid="uid://cvn4x20lxvgdq" path="res://Objects/basic_prop.tscn" id="1_jv3hn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_watbp"]
+size = Vector2(58, 84)
+
+[node name="BlockBox" instance=ExtResource("1_jv3hn")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(575.371, 613.885, 65.1919, 89.376)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_watbp")

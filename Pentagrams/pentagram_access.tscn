@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=3 uid="uid://cj4s2t6dx74ja"]
+
+[ext_resource type="Script" path="res://Pentagrams/pentagram_access.gd" id="1_uqxb0"]
+[ext_resource type="Texture2D" uid="uid://dw62biam7ifng" path="res://Assets/Tileset/TX Props.png" id="2_2f0t6"]
+[ext_resource type="Texture2D" uid="uid://doo8o8itso4kh" path="res://Assets/Shadow/Click.png" id="3_ihdow"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_juots"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03j8c"]
+atlas = ExtResource("3_ihdow")
+region = Rect2(0, 0, 18, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfubr"]
+atlas = ExtResource("3_ihdow")
+region = Rect2(18, 0, 18, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dyag0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03j8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfubr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qppft"]
+radius = 159.022
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gya5n"]
+size = Vector2(146, 136)
+
+[sub_resource type="Curve" id="Curve_v4ls6"]
+_data = [Vector2(0.0382695, 0.0260416), 0.0, 0.0, 0, 0, Vector2(0.500832, 1), 0.0, 0.0, 0, 0, Vector2(0.985025, 0.0677083), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_y3kf0"]
+curve = SubResource("Curve_v4ls6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ep6g5"]
+emission_shape = 1
+emission_sphere_radius = 128.0
+particle_flag_disable_z = true
+direction = Vector3(50, 50, 0)
+spread = 180.0
+gravity = Vector3(0, -90, 0)
+angular_velocity_min = -720.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 71.517
+damping_max = 87.926
+angle_max = 597.4
+scale_min = 8.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_y3kf0")
+color = Color(0.360784, 0.996078, 0.905882, 1)
+hue_variation_max = 0.72
+
+[node name="PentagramAccess" type="StaticBody2D"]
+material = SubResource("CanvasItemMaterial_juots")
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_uqxb0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_2f0t6")
+region_enabled = true
+region_rect = Rect2(880.054, 38.9464, 90.7779, 150.712)
+
+[node name="ClickIcon" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(0.7, 0.7, 0.7, 1)
+texture_filter = 1
+position = Vector2(44, -68)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_dyag0")
+autoplay = "default"
+frame_progress = 0.930691
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qppft")
+debug_color = Color(0.596078, 0.533333, 0.294118, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 72)
+shape = SubResource("RectangleShape2D_gya5n")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_ep6g5")
+lifetime = 2.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

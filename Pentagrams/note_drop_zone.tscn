@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://biorlntk8f30j"]
+
+[ext_resource type="Script" path="res://Pentagrams/note_drop_zone.gd" id="1_52w0b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxhhv"]
+radius = 3.16228
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_usy28"]
+radius = 3.16228
+
+[node name="NoteDropZone" type="Marker2D" groups=["NoteDropZone"]]
+script = ExtResource("1_52w0b")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dxhhv")
+debug_color = Color(0.626471, 0.3848, 0.928399, 0.42)
+
+[node name="Areaformusic" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areaformusic"]
+shape = SubResource("CircleShape2D_usy28")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Areaformusic" to="." method="_on_areaformusic_area_entered"]

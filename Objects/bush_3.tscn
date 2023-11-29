@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ytf7115unbrc"]
+
+[ext_resource type="PackedScene" uid="uid://bpho72fmv0tmd" path="res://Objects/basic_object.tscn" id="1_46mrp"]
+[ext_resource type="Texture2D" uid="uid://dqermiwx8btvx" path="res://Assets/Tileset/TX Plant.png" id="2_12ahr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u3igk"]
+radius = 29.7321
+
+[node name="Bush3" instance=ExtResource("1_46mrp")]
+z_index = 9
+y_sort_enabled = true
+
+[node name="Sprite2D" parent="." index="0"]
+texture_filter = 1
+texture = ExtResource("2_12ahr")
+region_enabled = true
+region_rect = Rect2(194.39, 389.271, 57.0639, 51.8499)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_u3igk")

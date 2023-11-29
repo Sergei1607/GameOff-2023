@@ -1,0 +1,306 @@
+[gd_scene load_steps=23 format=3 uid="uid://cq5snq0s0fx4i"]
+
+[ext_resource type="PackedScene" uid="uid://dshvxnpxiqv28" path="res://UI/note_count_pentagram_ui.tscn" id="1_g4d8b"]
+[ext_resource type="Script" path="res://Pentagrams/basic_pentagram_scene.gd" id="1_ytgpx"]
+[ext_resource type="PackedScene" uid="uid://biorlntk8f30j" path="res://Pentagrams/note_drop_zone.tscn" id="2_2gv5x"]
+[ext_resource type="Texture2D" uid="uid://udu2pnrs0017" path="res://Assets/Paper/kiwihug-zGZYQQVmXw0-unsplash (1) (1).jpg" id="2_64wc5"]
+[ext_resource type="PackedScene" uid="uid://ci228wtmon7cr" path="res://UI/keys_ui_for_pentagram.tscn" id="3_gpvnq"]
+[ext_resource type="PackedScene" uid="uid://c1gdgdjxavv24" path="res://Notes/basic_note_drag_and_drop.tscn" id="4_mkfdm"]
+[ext_resource type="PackedScene" uid="uid://hxog5axf3caa" path="res://Pentagrams/key_drop_zone.tscn" id="5_paapg"]
+[ext_resource type="PackedScene" uid="uid://b17exkc5uhsah" path="res://Keys/basic_key_drag_and_drop.tscn" id="7_8tmp0"]
+[ext_resource type="Texture2D" uid="uid://bvy7ka3fa70tk" path="res://Assets/Keys/F.png" id="8_66pjx"]
+[ext_resource type="PackedScene" uid="uid://dp2sqc60f0cwg" path="res://Pentagrams/magic_ball.tscn" id="8_ga6a2"]
+[ext_resource type="Texture2D" uid="uid://c6sxg5v0pp08d" path="res://Assets/Keys/D.png" id="9_oigvn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1s2in"]
+radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4krr"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cdqx3"]
+radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3dcpj"]
+radius = 14.3178
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nkpid"]
+radius = 14.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mb1s7"]
+a = Vector2(-4, 6)
+b = Vector2(16, 13)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4j73b"]
+a = Vector2(-4, 4)
+b = Vector2(8, -6)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rq4lp"]
+a = Vector2(-8, -2)
+b = Vector2(6, 7)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_77f24"]
+a = Vector2(-8, -2)
+b = Vector2(7, -8)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_amm7m"]
+a = Vector2(-14, -2)
+b = Vector2(5, 11)
+
+[sub_resource type="Curve2D" id="Curve2D_rcynu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 160, 320, -45.4953, 131.358, 45.4953, -131.358, 283.259, 336, 0, 0, 0, 0, 406.519, 320, -89.3834, 129.029, 89.3834, -129.029, 529.778, 304, -20.6824, -29.424, 20.6824, 29.424, 653.037, 352, -89.0951, 115.562, 89.0951, -115.562, 776.296, 304)
+}
+point_count = 6
+
+[node name="BasicPentagramScene" type="Node2D"]
+script = ExtResource("1_ytgpx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 0.745098, 1)
+offset_right = 1618.0
+offset_bottom = 734.0
+texture = ExtResource("2_64wc5")
+
+[node name="KeysUIforPentagram" parent="." instance=ExtResource("3_gpvnq")]
+offset_left = 544.0
+offset_top = 32.0
+offset_right = 544.0
+offset_bottom = 32.0
+
+[node name="note_count_pentagram_ui" parent="." instance=ExtResource("1_g4d8b")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 220.0
+offset_top = 430.0
+offset_right = 220.0
+offset_bottom = 430.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Play" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1075.0
+offset_top = 592.0
+offset_right = 1116.0
+offset_bottom = 623.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1024.0
+offset_top = 593.0
+offset_right = 1066.0
+offset_bottom = 624.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Quit"
+
+[node name="Lines" type="Node2D" parent="."]
+position = Vector2(0, 64)
+
+[node name="Line2D" type="Line2D" parent="Lines"]
+position = Vector2(96, 224)
+points = PackedVector2Array(0, 0, 64, 0, 128, 0, 192, 0, 256, 0, 320, 0, 384, 0, 448, 0, 512, 0, 576, 0, 640, 0, 704, 0, 768, 0, 831, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D2" type="Line2D" parent="Lines"]
+position = Vector2(96, 256)
+points = PackedVector2Array(0, 0, 64, 0, 128, 0, 192, 0, 256, 0, 320, 0, 384, 0, 448, 0, 512, 0, 576, 0, 640, 0, 704, 0, 768, 0, 831, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D3" type="Line2D" parent="Lines"]
+position = Vector2(96, 288)
+points = PackedVector2Array(0, 0, 64, 0, 128, 0, 192, 0, 256, 0, 320, 0, 384, 0, 448, 0, 512, 0, 576, 0, 640, 0, 704, 0, 768, 0, 831, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D4" type="Line2D" parent="Lines"]
+position = Vector2(96, 320)
+points = PackedVector2Array(0, 0, 64, 0, 128, 0, 192, 0, 256, 0, 320, 0, 384, 0, 448, 0, 512, 0, 576, 0, 640, 0, 704, 0, 768, 0, 831, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D5" type="Line2D" parent="Lines"]
+position = Vector2(96, 352)
+points = PackedVector2Array(0, 0, 64, 0, 128, 0, 192, 0, 256, 0, 320, 0, 384, 0, 448, 0, 512, 0, 576, 0, 640, 0, 704, 0, 768, 0, 831, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D6" type="Line2D" parent="Lines"]
+position = Vector2(925, 226)
+points = PackedVector2Array(0, 128, 0, -4)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Line2D7" type="Line2D" parent="Lines"]
+position = Vector2(919, 225)
+points = PackedVector2Array(0, 128, 0, 0)
+width = 5.0
+default_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="DropZones" type="Node2D" parent="."]
+position = Vector2(0, 64)
+
+[node name="NoteDropZone1" parent="DropZones" instance=ExtResource("2_2gv5x")]
+position = Vector2(288, 304)
+
+[node name="Area2D2" type="Area2D" parent="DropZones/NoteDropZone1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZones/NoteDropZone1/Area2D2"]
+shape = SubResource("CircleShape2D_1s2in")
+
+[node name="NoteDropZone2" parent="DropZones" instance=ExtResource("2_2gv5x")]
+position = Vector2(416, 288)
+
+[node name="Area2D2" type="Area2D" parent="DropZones/NoteDropZone2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZones/NoteDropZone2/Area2D2"]
+shape = SubResource("CircleShape2D_j4krr")
+
+[node name="NoteDropZone3" parent="DropZones" instance=ExtResource("2_2gv5x")]
+position = Vector2(544, 272)
+
+[node name="Area2D2" type="Area2D" parent="DropZones/NoteDropZone3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZones/NoteDropZone3/Area2D2"]
+shape = SubResource("CircleShape2D_cdqx3")
+
+[node name="NoteDropZone4" parent="DropZones" instance=ExtResource("2_2gv5x")]
+position = Vector2(672, 320)
+
+[node name="Area2D2" type="Area2D" parent="DropZones/NoteDropZone4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZones/NoteDropZone4/Area2D2"]
+shape = SubResource("CircleShape2D_3dcpj")
+
+[node name="NoteDropZone5" parent="DropZones" instance=ExtResource("2_2gv5x")]
+position = Vector2(800, 272)
+
+[node name="Area2D2" type="Area2D" parent="DropZones/NoteDropZone5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZones/NoteDropZone5/Area2D2"]
+shape = SubResource("CircleShape2D_nkpid")
+
+[node name="KeyDropZone" parent="DropZones" instance=ExtResource("5_paapg")]
+position = Vector2(160, 288)
+
+[node name="Keys" type="Node2D" parent="."]
+
+[node name="G" parent="Keys" instance=ExtResource("7_8tmp0")]
+position = Vector2(379, 128)
+
+[node name="F" parent="Keys" instance=ExtResource("7_8tmp0")]
+position = Vector2(555, 133)
+
+[node name="Sprite2D" parent="Keys/F" index="0"]
+texture = ExtResource("8_66pjx")
+
+[node name="C" parent="Keys" instance=ExtResource("7_8tmp0")]
+position = Vector2(734, 134)
+
+[node name="Sprite2D" parent="Keys/C" index="0"]
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("9_oigvn")
+
+[node name="CheckPointAreas" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="CheckPoint1" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(288, 272)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint1"]
+position = Vector2(3, 32)
+shape = SubResource("SegmentShape2D_mb1s7")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="CheckPoint2" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(461, 306)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint2"]
+position = Vector2(-34, 33)
+shape = SubResource("SegmentShape2D_4j73b")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="CheckPoint3" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(613, 248)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint3"]
+position = Vector2(-55, 35)
+shape = SubResource("SegmentShape2D_rq4lp")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="CheckPoint4" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(779, 345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint4"]
+position = Vector2(-94, 31)
+shape = SubResource("SegmentShape2D_77f24")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="CheckPoint5" type="Area2D" parent="CheckPointAreas"]
+position = Vector2(789, 333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointAreas/CheckPoint5"]
+position = Vector2(19, -38)
+shape = SubResource("SegmentShape2D_amm7m")
+debug_color = Color(0.203922, 0.54902, 0.882353, 0.419608)
+
+[node name="Notes" type="Node2D" parent="."]
+
+[node name="Note1" parent="Notes" instance=ExtResource("4_mkfdm")]
+position = Vector2(320, 534)
+
+[node name="Note2" parent="Notes" instance=ExtResource("4_mkfdm")]
+position = Vector2(448, 535)
+
+[node name="Note3" parent="Notes" instance=ExtResource("4_mkfdm")]
+position = Vector2(576, 534)
+
+[node name="Note4" parent="Notes" instance=ExtResource("4_mkfdm")]
+position = Vector2(703, 535)
+
+[node name="Note5" parent="Notes" instance=ExtResource("4_mkfdm")]
+position = Vector2(830, 534)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-6.15385, 32)
+scale = Vector2(1.03846, 1)
+curve = SubResource("Curve2D_rcynu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(160, 320)
+rotation = 0.0996687
+rotates = false
+loop = false
+
+[node name="MagicBall" parent="Path2D/PathFollow2D" instance=ExtResource("8_ga6a2")]
+
+[connection signal="pressed" from="Play" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="area_entered" from="DropZones/NoteDropZone1/Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="area_entered" from="DropZones/NoteDropZone2/Area2D2" to="." method="_on_area_2d_2_area_entered2"]
+[connection signal="area_entered" from="DropZones/NoteDropZone3/Area2D2" to="." method="_on_area_2d_2_area_entered3"]
+[connection signal="area_entered" from="DropZones/NoteDropZone4/Area2D2" to="." method="_on_area_2d_2_area_entered4"]
+[connection signal="area_entered" from="DropZones/NoteDropZone5/Area2D2" to="." method="_on_area_2d_2_area_entered5"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint1" to="." method="_on_check_point_1_area_entered"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint2" to="." method="_on_check_point_2_area_entered"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint3" to="." method="_on_check_point_3_area_entered"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint4" to="." method="_on_check_point_4_area_entered"]
+[connection signal="area_entered" from="CheckPointAreas/CheckPoint5" to="." method="_on_check_point_5_area_entered"]
+
+[editable path="Keys/F"]
+[editable path="Keys/C"]

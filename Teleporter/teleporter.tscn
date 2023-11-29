@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://bohmh0r16r7nb"]
+
+[ext_resource type="Texture2D" uid="uid://dw62biam7ifng" path="res://Assets/Tileset/TX Props.png" id="1_3fx0p"]
+[ext_resource type="Script" path="res://Teleporter/teleporter.gd" id="1_ulsf8"]
+[ext_resource type="Texture2D" uid="uid://doo8o8itso4kh" path="res://Assets/Shadow/Click.png" id="2_hqlkh"]
+[ext_resource type="AudioStream" uid="uid://xj5tb7k60xfv" path="res://Assets/Audio/game-teleport-90735.mp3" id="4_4exg6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k4wt"]
+atlas = ExtResource("2_hqlkh")
+region = Rect2(0, 0, 18, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iurgl"]
+atlas = ExtResource("2_hqlkh")
+region = Rect2(18, 0, 18, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7nbum"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k4wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iurgl")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d4dn0"]
+radius = 83.0
+height = 168.0
+
+[node name="Teleporter" type="Node2D"]
+z_index = 3
+y_sort_enabled = true
+script = ExtResource("1_ulsf8")
+
+[node name="Click" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(0.8, 0.8, 0.8, 1)
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(66, -29.5)
+scale = Vector2(1.44444, 1.29167)
+sprite_frames = SubResource("SpriteFrames_7nbum")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.872049
+
+[node name="Base" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_3fx0p")
+region_enabled = true
+region_rect = Rect2(703.761, 535.292, 193.022, 148.519)
+
+[node name="BaseActivated" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("1_3fx0p")
+region_enabled = true
+region_rect = Rect2(617.717, 720.153, 193.496, 149.177)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_d4dn0")
+debug_color = Color(0.564706, 0.552941, 0.211765, 0.419608)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4exg6")
+volume_db = -10.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

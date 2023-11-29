@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbdgucbcfeugv"]
+
+[ext_resource type="PackedScene" uid="uid://bpho72fmv0tmd" path="res://Objects/basic_object.tscn" id="1_komym"]
+[ext_resource type="Texture2D" uid="uid://dqermiwx8btvx" path="res://Assets/Tileset/TX Plant.png" id="2_1dej4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xl2ap"]
+radius = 17.1172
+
+[node name="Tree3" instance=ExtResource("1_komym")]
+z_index = 10
+y_sort_enabled = true
+
+[node name="Sprite2D" parent="." index="0"]
+texture_filter = 1
+texture = ExtResource("2_1dej4")
+region_enabled = true
+region_rect = Rect2(589.567, 59.1816, 160.012, 243.983)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2, 108)
+shape = SubResource("CircleShape2D_xl2ap")
